@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const config = {
   entry: `./src/index.js`,
@@ -23,6 +24,20 @@ const config = {
       }
     ],
   },
+  resolve: {
+    extensions: [
+      '.js',
+      'jsx',
+    ]
+  },
+  plugins: [
+    new HtmlWebpackPlugin(
+      {
+        title: 'Webpack-4-examples',
+        filename: 'index.html'
+      },
+    )
+  ]
 };
 
 module.exports = config;
